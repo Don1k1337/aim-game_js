@@ -65,7 +65,12 @@ function getRandomSize(min, max) {
 }
 
 function randomCircleGenerator() {
+    let rgbColors = [];
     const circle = document.createElement('div');
+    for (let i = 0; i < 3; i++) {
+        rgbColors.push(Math.floor(Math.random() * 255));
+    }
+    circle.style.backgroundColor = 'rgb(' + rgbColors.join(',') + ')'
     const size = getRandomSize(10, 30);
     const { width, height } = board.getBoundingClientRect()
     const positionX = getRandomSize(0, width - size);
